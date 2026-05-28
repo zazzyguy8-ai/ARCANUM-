@@ -1,0 +1,484 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --font-cinzel: 'Cinzel', serif;
+  --font-crimson: 'Crimson Pro', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+
+  --void: #050508;
+  --deep: #0d0d14;
+  --dark: #12121c;
+  --navy: #1a1a2e;
+  --gold: #c9a96e;
+  --gold-light: #e8c97a;
+  --gold-dim: #7c6c4a;
+  --silver: #8b9dc3;
+  --parchment: #e8d5b7;
+  --crimson: #8b1a1a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--void);
+  color: var(--parchment);
+  font-family: var(--font-crimson);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* ── SELECTION ── */
+::selection {
+  background: rgba(201, 169, 110, 0.25);
+  color: var(--gold-light);
+}
+
+/* ── TYPOGRAPHY ── */
+.font-display {
+  font-family: var(--font-cinzel);
+  letter-spacing: 0.05em;
+}
+
+.font-serif {
+  font-family: var(--font-crimson);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #7c6c4a 0%, #c9a96e 40%, #e8c97a 60%, #c9a96e 80%, #7c6c4a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #7c6c4a 0%, #e8c97a 25%, #c9a96e 50%, #e8c97a 75%, #7c6c4a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ── RUNE EFFECTS ── */
+.rune-glow {
+  text-shadow:
+    0 0 10px rgba(201, 169, 110, 0.8),
+    0 0 30px rgba(201, 169, 110, 0.4),
+    0 0 60px rgba(201, 169, 110, 0.2);
+  animation: runeGlow 3s ease-in-out infinite;
+}
+
+@keyframes runeGlow {
+  0%, 100% { text-shadow: 0 0 10px rgba(201,169,110,0.8), 0 0 30px rgba(201,169,110,0.4); }
+  50% { text-shadow: 0 0 20px rgba(232,201,122,1), 0 0 50px rgba(201,169,110,0.8), 0 0 100px rgba(201,169,110,0.4); }
+}
+
+.silver-glow {
+  text-shadow:
+    0 0 10px rgba(139, 157, 195, 0.8),
+    0 0 30px rgba(139, 157, 195, 0.4);
+}
+
+/* ── BORDERS ── */
+.border-gold-fade {
+  border-image: linear-gradient(90deg, transparent, rgba(201,169,110,0.6), transparent) 1;
+}
+
+.border-arcane {
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  box-shadow: 0 0 20px rgba(201, 169, 110, 0.05), inset 0 0 20px rgba(5, 5, 8, 0.5);
+}
+
+/* ── CARDS ── */
+.card-arcane {
+  background: linear-gradient(135deg, rgba(13,13,20,0.95) 0%, rgba(26,26,46,0.9) 100%);
+  border: 1px solid rgba(201,169,110,0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.card-arcane:hover {
+  border-color: rgba(201,169,110,0.5);
+  box-shadow: 0 0 30px rgba(201,169,110,0.1);
+  transform: translateY(-2px);
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: linear-gradient(135deg, rgba(124,108,74,0.8) 0%, rgba(201,169,110,0.9) 50%, rgba(124,108,74,0.8) 100%);
+  border: 1px solid rgba(232,201,122,0.5);
+  color: #050508;
+  font-family: var(--font-cinzel);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 40px rgba(201,169,110,0.6);
+  border-color: rgba(232,201,122,0.9);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(201,169,110,0.4);
+  color: rgba(201,169,110,0.8);
+  font-family: var(--font-cinzel);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(201,169,110,0.1);
+  border-color: rgba(201,169,110,0.7);
+  color: rgba(201,169,110,1);
+  box-shadow: 0 0 20px rgba(201,169,110,0.2);
+}
+
+/* ── AMBIENT PARTICLES ── */
+.particle-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: radial-gradient(circle, rgba(201,169,110,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: particle-drift linear infinite;
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  5% { opacity: 0.8; transform: translateY(95vh) scale(1); }
+  95% { opacity: 0.3; }
+  100% {
+    transform: translateY(-10vh) translateX(var(--drift, 40px)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* ── FOG EFFECT ── */
+.fog-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(30,10,46,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(26,26,46,0.1) 0%, transparent 60%);
+}
+
+/* ── PROGRESS BAR ── */
+.xp-bar-track {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  background: linear-gradient(90deg, #7c6c4a, #c9a96e, #e8c97a);
+  border-radius: 9999px;
+  transition: width 1s ease-out;
+  box-shadow: 0 0 10px rgba(201,169,110,0.5);
+}
+
+/* ── DIVIDERS ── */
+.divider-rune {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(201,169,110,0.4);
+  font-family: var(--font-cinzel);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.divider-rune::before,
+.divider-rune::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent);
+}
+
+/* ── QUIZ OPTION ── */
+.quiz-option {
+  cursor: pointer;
+  background: rgba(13,13,20,0.7);
+  border: 1px solid rgba(201,169,110,0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-option::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, transparent, rgba(201,169,110,0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.quiz-option:hover::before,
+.quiz-option.selected::before {
+  opacity: 1;
+}
+
+.quiz-option:hover {
+  background: rgba(26,26,46,0.8);
+  border-color: rgba(201,169,110,0.4);
+  transform: translateX(4px);
+}
+
+.quiz-option.selected {
+  background: rgba(201,169,110,0.1);
+  border-color: rgba(201,169,110,0.6);
+  box-shadow: 0 0 20px rgba(201,169,110,0.15);
+}
+
+/* ── ARCHETYPE CARD ── */
+.archetype-sigil {
+  font-size: 4rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 20px currentColor);
+  animation: runeGlow 3s ease-in-out infinite;
+}
+
+/* ── PAGE TRANSITIONS ── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ── LORE TEXT ── */
+.lore-text {
+  font-family: var(--font-crimson);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(232,213,183,0.85);
+}
+
+.lore-text strong {
+  color: #c9a96e;
+  font-weight: 500;
+}
+
+.lore-text em {
+  color: rgba(139,157,195,0.9);
+  font-style: italic;
+}
+
+/* ── RUNE SYMBOLS ── */
+.rune-circle {
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.rune-circle::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.1);
+  animation: spin 20s linear infinite;
+}
+
+.rune-circle::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.05);
+  animation: spin 30s linear infinite reverse;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── NAVIGATION ── */
+.nav-link {
+  font-family: var(--font-cinzel);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(232,213,183,0.5);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.8), transparent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: rgba(201,169,110,0.9);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* ── ORACLE TEXTAREA ── */
+.oracle-input {
+  background: rgba(13,13,20,0.8);
+  border: 1px solid rgba(201,169,110,0.2);
+  color: var(--parchment);
+  font-family: var(--font-crimson);
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.oracle-input:focus {
+  border-color: rgba(201,169,110,0.5);
+  box-shadow: 0 0 20px rgba(201,169,110,0.05);
+}
+
+.oracle-input::placeholder {
+  color: rgba(232,213,183,0.3);
+  font-style: italic;
+}
+
+/* ── STRIPE / PREMIUM ── */
+.premium-badge {
+  background: linear-gradient(135deg, #7c6c4a, #c9a96e);
+  color: #050508;
+  font-family: var(--font-cinzel);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 2px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+/* ── LOADING ── */
+.loading-sigil {
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(201,169,110,0.1);
+  border-top-color: rgba(201,169,110,0.8);
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+
+/* ── STREAK DISPLAY ── */
+.streak-flame {
+  color: #ff6622;
+  text-shadow: 0 0 10px rgba(255,102,34,0.8);
+  animation: runeGlow 2s ease-in-out infinite;
+}
+
+/* ── KEYFRAMES (also used in inline styles) ── */
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-20px, -20px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .archetype-sigil {
+    font-size: 3rem;
+  }
+}
