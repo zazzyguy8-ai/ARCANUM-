@@ -142,7 +142,7 @@ export default function RevelationPage() {
           }}
         >
           <h1
-            className="font-display text-5xl sm:text-7xl md:text-8xl font-black tracking-wider uppercase mb-2"
+            className="font-display text-3xl sm:text-5xl md:text-7xl font-black tracking-wider uppercase mb-2"
             style={{
               background: `linear-gradient(135deg, ${archetype.secondaryColor} 0%, ${archetype.primaryColor} 40%, #e8c97a 60%, ${archetype.primaryColor} 80%, ${archetype.secondaryColor} 100%)`,
               WebkitBackgroundClip: 'text',
@@ -165,7 +165,7 @@ export default function RevelationPage() {
             transform: phase >= 4 ? 'translateY(0)' : 'translateY(20px)',
           }}
         >
-          <blockquote className="font-serif text-arcanum-parchment/60 text-lg sm:text-xl italic leading-relaxed">
+          <blockquote className="font-serif text-arcanum-parchment/60 text-base sm:text-lg md:text-xl italic leading-relaxed">
             "{archetype.quote}"
           </blockquote>
         </div>
@@ -179,7 +179,7 @@ export default function RevelationPage() {
           }}
         >
           {/* Lore */}
-          <div className="card-arcane p-8 rounded-sm mb-8">
+          <div className="card-arcane p-4 sm:p-8 rounded-sm mb-8">
             <h2 className="font-display text-arcanum-gold text-sm tracking-[0.3em] uppercase mb-6">
               Archive Entry
             </h2>
@@ -196,7 +196,7 @@ export default function RevelationPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
 
             {/* Abilities */}
-            <div className="card-arcane p-6 rounded-sm">
+            <div className="card-arcane p-4 sm:p-6 rounded-sm">
               <h2 className="font-display text-arcanum-gold text-xs tracking-[0.3em] uppercase mb-5">
                 Abilities
               </h2>
@@ -225,7 +225,7 @@ export default function RevelationPage() {
             {/* Stats */}
             <div className="space-y-6">
               {/* Attribute bars */}
-              <div className="card-arcane p-6 rounded-sm">
+              <div className="card-arcane p-4 sm:p-6 rounded-sm">
                 <h2 className="font-display text-arcanum-gold text-xs tracking-[0.3em] uppercase mb-5">
                   Essence Profile
                 </h2>
@@ -242,7 +242,7 @@ export default function RevelationPage() {
               </div>
 
               {/* Spiritual alignment */}
-              <div className="card-arcane p-6 rounded-sm">
+              <div className="card-arcane p-4 sm:p-6 rounded-sm">
                 <h2 className="font-display text-arcanum-gold text-xs tracking-[0.3em] uppercase mb-3">
                   Spiritual Alignment
                 </h2>
@@ -255,7 +255,7 @@ export default function RevelationPage() {
 
           {/* Strengths & Weaknesses */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-            <div className="card-arcane p-6 rounded-sm">
+            <div className="card-arcane p-4 sm:p-6 rounded-sm">
               <h2 className="font-display text-arcanum-gold text-xs tracking-[0.3em] uppercase mb-4">
                 Primary Strengths
               </h2>
@@ -268,7 +268,7 @@ export default function RevelationPage() {
                 ))}
               </ul>
             </div>
-            <div className="card-arcane p-6 rounded-sm">
+            <div className="card-arcane p-4 sm:p-6 rounded-sm">
               <h2 className="font-display text-arcanum-silver text-xs tracking-[0.3em] uppercase mb-4">
                 Shadow Aspects
               </h2>
@@ -316,7 +316,7 @@ export default function RevelationPage() {
             <p className="font-serif text-arcanum-parchment/40 text-sm italic mb-6">
               The Archive has recorded your essence. Your Sanctum awaits.
             </p>
-            <Link href="/sanctum" className="btn-primary px-12 py-5 text-sm rounded-sm">
+            <Link href="/sanctum" className="btn-primary px-8 sm:px-12 py-4 sm:py-5 text-sm rounded-sm">
               Enter the Sanctum
             </Link>
           </div>

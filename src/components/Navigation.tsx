@@ -51,7 +51,7 @@ export default function Navigation() {
 
           <div className="hidden sm:flex items-center gap-2">
             <span className="font-display text-xs text-arcanum-gold/60 tracking-wider">LVL {level}</span>
-            <div className="w-20 h-1 xp-bar-track rounded-full">
+            <div className="w-16 sm:w-20 h-1 xp-bar-track rounded-full">
               <div
                 className="h-full xp-bar-fill rounded-full"
                 style={{ width: `${xpPercent}%` }}
@@ -71,7 +71,7 @@ export default function Navigation() {
           <Link
             key={item.href}
             href={item.href}
-            className={`flex-1 py-2 text-center nav-link text-[10px] ${pathname === item.href ? 'active' : ''}`}
+            className={`flex-1 py-3 text-center nav-link text-xs ${pathname === item.href ? 'active' : ''}`}
           >
             {item.label}
           </Link>

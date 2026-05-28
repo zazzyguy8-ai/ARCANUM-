@@ -13,7 +13,7 @@ function LoreModal({ entry, onClose }: { entry: LoreEntry; onClose: () => void }
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-arcanum-void/95 backdrop-blur-md" onClick={onClose} />
       <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        <div className="card-arcane p-8 rounded-sm">
+        <div className="card-arcane p-5 sm:p-8 rounded-sm">
           <div className="mb-6">
             <div
               className="inline-block px-2 py-0.5 mb-3 text-xs font-display tracking-wider uppercase rounded-sm border border-arcanum-gold/20 text-arcanum-gold/60"
@@ -101,7 +101,7 @@ export default function ArchivePage() {
           <p className="font-display text-arcanum-gold/40 text-xs tracking-[0.4em] uppercase mb-2">
             Restricted Access
           </p>
-          <h1 className="font-display text-3xl sm:text-4xl tracking-wide text-arcanum-parchment mb-3">
+          <h1 className="font-display text-2xl sm:text-3xl md:text-4xl tracking-wide text-arcanum-parchment mb-3">
             The Forbidden Archive
           </h1>
           <p className="font-serif text-arcanum-parchment/50 text-sm italic max-w-lg mx-auto">
@@ -111,7 +111,7 @@ export default function ArchivePage() {
         </div>
 
         {/* Category filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -128,13 +128,13 @@ export default function ArchivePage() {
         </div>
 
         {/* Lore grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {filtered.map((entry) => {
             const locked = entry.isPremium && !isPremium;
             return (
               <div
                 key={entry.id}
-                className={`card-arcane p-6 rounded-sm cursor-pointer group transition-all ${
+                className={`card-arcane p-4 sm:p-6 rounded-sm cursor-pointer group transition-all ${
                   locked ? 'opacity-50' : ''
                 }`}
                 onClick={() => !locked && setSelected(entry)}
@@ -165,7 +165,7 @@ export default function ArchivePage() {
         </div>
 
         {!isPremium && (
-          <div className="mt-12 card-arcane p-8 rounded-sm text-center">
+          <div className="mt-12 card-arcane p-5 sm:p-8 rounded-sm text-center">
             <span className="text-3xl block mb-4" style={{ color: '#c9a96e' }}>𖤐</span>
             <h3 className="font-display text-arcanum-gold text-base tracking-wider uppercase mb-3">
               Sealed Manuscripts
@@ -174,7 +174,7 @@ export default function ArchivePage() {
               Several manuscripts in the Archive are sealed to initiates. Adept access reveals the
               complete collection, including the Forbidden Knowledge texts and the Hidden Manuscripts series.
             </p>
-            <a href="/oracle?upgrade=1" className="btn-secondary px-10 py-3 text-sm rounded-sm inline-block">
+            <a href="/oracle?upgrade=1" className="btn-secondary px-6 sm:px-10 py-3 text-sm rounded-sm inline-block">
               Unlock the Full Archive
             </a>
           </div>

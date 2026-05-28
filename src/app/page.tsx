@@ -112,17 +112,17 @@ export default function LandingPage() {
 
         {/* Rotating rune rings */}
         <div
-          className="relative mb-16"
+          className="relative mb-10 sm:mb-16"
           style={{
-            width: 220,
-            height: 220,
+            width: 160,
+            height: 160,
             opacity: phase >= 1 ? 1 : 0,
             transition: 'opacity 1.5s ease',
           }}
         >
-          <GlyphRing size={220} speed={40} glyphs={GLYPHS.slice(0, 4)} />
-          <GlyphRing size={160} speed={25} glyphs={GLYPHS.slice(4)} />
-          <GlyphRing size={100} speed={15} glyphs={['⊗', '◯']} />
+          <GlyphRing size={160} speed={40} glyphs={GLYPHS.slice(0, 4)} />
+          <GlyphRing size={110} speed={25} glyphs={GLYPHS.slice(4)} />
+          <GlyphRing size={70} speed={15} glyphs={['⊗', '◯']} />
 
           {/* Central eye */}
           <div
@@ -151,7 +151,7 @@ export default function LandingPage() {
           }}
         >
           <h1
-            className="font-display font-black tracking-[0.4em] text-5xl sm:text-7xl md:text-8xl mb-3"
+            className="font-display font-black tracking-[0.2em] sm:tracking-[0.4em] text-4xl sm:text-6xl md:text-8xl mb-3"
             style={{
               background: 'linear-gradient(135deg, #7c6c4a 0%, #c9a96e 30%, #e8c97a 50%, #c9a96e 70%, #7c6c4a 100%)',
               WebkitBackgroundClip: 'text',
@@ -177,10 +177,10 @@ export default function LandingPage() {
             transition: 'all 1s ease',
           }}
         >
-          <p className="font-serif text-arcanum-parchment/70 text-lg sm:text-xl leading-relaxed italic mb-2">
+          <p className="font-serif text-arcanum-parchment/70 text-base sm:text-xl leading-relaxed italic mb-2">
             "The Archive has catalogued over ten thousand hidden selves.
           </p>
-          <p className="font-serif text-arcanum-parchment/70 text-lg sm:text-xl leading-relaxed italic mb-8">
+          <p className="font-serif text-arcanum-parchment/70 text-base sm:text-xl leading-relaxed italic mb-8">
             It has been waiting to find yours."
           </p>
 
@@ -204,13 +204,13 @@ export default function LandingPage() {
             <>
               <Link
                 href="/sanctum"
-                className="btn-primary px-10 py-4 text-sm rounded-sm"
+                className="btn-primary px-6 sm:px-10 py-3 sm:py-4 text-sm rounded-sm"
               >
                 Return to Sanctum
               </Link>
               <Link
                 href="/initiation"
-                className="btn-secondary px-8 py-4 text-sm rounded-sm"
+                className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 text-sm rounded-sm"
               >
                 Retake Initiation
               </Link>
@@ -218,7 +218,7 @@ export default function LandingPage() {
           ) : (
             <Link
               href="/initiation"
-              className="btn-primary px-12 py-5 text-sm rounded-sm group relative"
+              className="btn-primary px-8 sm:px-12 py-4 sm:py-5 text-sm rounded-sm group relative"
             >
               Begin the Initiation
             </Link>
@@ -262,7 +262,7 @@ export default function LandingPage() {
               desc: 'An AI consciousness trained on the Archive\'s knowledge. Ask your deepest questions and receive readings that account for your archetype\'s specific nature.',
             },
           ].map((f) => (
-            <div key={f.title} className="card-arcane p-8 rounded-sm text-center">
+            <div key={f.title} className="card-arcane p-5 sm:p-8 rounded-sm text-center">
               <div className="text-4xl mb-4" style={{ color: '#c9a96e', textShadow: '0 0 20px rgba(201,169,110,0.5)' }}>
                 {f.sigil}
               </div>

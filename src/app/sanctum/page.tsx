@@ -95,7 +95,7 @@ export default function SanctumPage() {
           <p className="font-display text-arcanum-gold/40 text-xs tracking-[0.4em] uppercase mb-2">
             Personal Sanctum
           </p>
-          <h1 className="font-display text-3xl sm:text-4xl tracking-wide" style={{ color: archetype.primaryColor }}>
+          <h1 className="font-display text-2xl sm:text-3xl md:text-4xl tracking-wide" style={{ color: archetype.primaryColor }}>
             {archetype.name}
           </h1>
           <p className="font-serif text-arcanum-parchment/50 mt-1 text-sm italic">{title}</p>
@@ -106,7 +106,7 @@ export default function SanctumPage() {
           {/* Left: Archetype card */}
           <div className="lg:col-span-1">
             <div
-              className="card-arcane p-8 rounded-sm text-center h-full"
+              className="card-arcane p-4 sm:p-6 rounded-sm text-center h-full"
               style={{ borderColor: `${archetype.primaryColor}30` }}
             >
               {/* Sigil */}
@@ -132,7 +132,7 @@ export default function SanctumPage() {
               <div className="mb-5">
                 <p className="font-display text-arcanum-gold/40 text-xs tracking-wider uppercase mb-1">Level</p>
                 <p
-                  className="font-display text-5xl font-black"
+                  className="font-display text-4xl sm:text-5xl font-black"
                   style={{ color: archetype.primaryColor }}
                 >
                   {level}
@@ -184,7 +184,7 @@ export default function SanctumPage() {
           <div className="lg:col-span-2 space-y-6">
 
             {/* Daily ritual */}
-            <div className="card-arcane p-6 rounded-sm">
+            <div className="card-arcane p-4 sm:p-6 rounded-sm">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="font-display text-arcanum-gold text-xs tracking-[0.3em] uppercase">
                   Today's Ritual
@@ -235,7 +235,7 @@ export default function SanctumPage() {
             </div>
 
             {/* Emotional profile */}
-            <div className="card-arcane p-6 rounded-sm">
+            <div className="card-arcane p-4 sm:p-6 rounded-sm">
               <h2 className="font-display text-arcanum-gold text-xs tracking-[0.3em] uppercase mb-4">
                 Emotional Profile
               </h2>
@@ -245,7 +245,7 @@ export default function SanctumPage() {
             </div>
 
             {/* Growth path */}
-            <div className="card-arcane p-6 rounded-sm">
+            <div className="card-arcane p-4 sm:p-6 rounded-sm">
               <h2 className="font-display text-arcanum-gold text-xs tracking-[0.3em] uppercase mb-4">
                 Your Growth Path
               </h2>
@@ -271,7 +271,7 @@ export default function SanctumPage() {
           <h2 className="font-display text-arcanum-gold text-xs tracking-[0.3em] uppercase mb-5">
             Relic Collection
           </h2>
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-3">
             {RELICS.map((relic) => (
               <RelicPlaceholder
                 key={relic.name}
@@ -301,7 +301,7 @@ export default function SanctumPage() {
           </div>
         ) : (
           <div
-            className="card-arcane p-8 rounded-sm text-center"
+            className="card-arcane p-5 sm:p-8 rounded-sm text-center"
             style={{ borderColor: 'rgba(201,169,110,0.3)' }}
           >
             <span className="text-3xl mb-4 block" style={{ color: '#c9a96e' }}>✦</span>
@@ -312,14 +312,14 @@ export default function SanctumPage() {
               Unlock evolution paths, premium rituals, unlimited Oracle readings, and the complete
               Forbidden Archive. The deeper work awaits.
             </p>
-            <Link href="/oracle?upgrade=1" className="btn-primary px-10 py-3 text-sm rounded-sm">
+            <Link href="/oracle?upgrade=1" className="btn-primary px-6 sm:px-10 py-3 text-sm rounded-sm">
               Unlock Adept Access — $9.99/mo
             </Link>
           </div>
         )}
 
         {/* Quick links */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-8">
           {[
             { href: '/rituals', label: 'Rituals', icon: '◈', desc: 'Begin a ritual' },
             { href: '/archive', label: 'Archive', icon: '𖤐', desc: 'Read the lore' },

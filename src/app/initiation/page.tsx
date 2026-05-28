@@ -104,7 +104,7 @@ export default function InitiationPage() {
           <div className="text-center">
             <div className="mb-8">
               <span
-                className="text-6xl block mb-6"
+                className="text-4xl sm:text-6xl block mb-6"
                 style={{
                   color: '#c9a96e',
                   textShadow: '0 0 40px rgba(201,169,110,0.6)',
@@ -113,7 +113,7 @@ export default function InitiationPage() {
               >
                 𖤐
               </span>
-              <h1 className="font-display text-arcanum-gold text-3xl sm:text-4xl tracking-widest mb-4 uppercase">
+              <h1 className="font-display text-arcanum-gold text-2xl sm:text-3xl md:text-4xl tracking-widest mb-4 uppercase">
                 The Initiation
               </h1>
               <div className="divider-rune mb-6">
@@ -121,7 +121,7 @@ export default function InitiationPage() {
               </div>
             </div>
 
-            <div className="card-arcane p-8 rounded-sm text-left mb-8">
+            <div className="card-arcane p-5 sm:p-8 rounded-sm text-left mb-8">
               <p className="font-serif text-arcanum-parchment/80 text-base leading-relaxed mb-4">
                 What follows is not a test of knowledge. It is not a performance.
               </p>
@@ -135,7 +135,7 @@ export default function InitiationPage() {
               </p>
             </div>
 
-            <div className="flex items-center justify-center gap-4 mb-6 text-arcanum-parchment/40 text-sm font-serif">
+            <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 text-arcanum-parchment/40 text-xs sm:text-sm font-serif">
               <span>12 questions</span>
               <span className="text-arcanum-gold/30">◈</span>
               <span>~5 minutes</span>
@@ -143,7 +143,7 @@ export default function InitiationPage() {
               <span>Irreversible</span>
             </div>
 
-            <button onClick={handleBegin} className="btn-primary px-12 py-4 text-sm rounded-sm">
+            <button onClick={handleBegin} className="btn-primary px-8 sm:px-12 py-3 sm:py-4 text-sm rounded-sm">
               Enter the Archive
             </button>
           </div>
@@ -152,7 +152,7 @@ export default function InitiationPage() {
         {phase === 'quiz' && currentQ && (
           <div>
             {/* Header */}
-            <div className="flex items-center justify-between mb-12">
+            <div className="flex items-center justify-between mb-8">
               <ProgressRunes current={quiz.currentQuestion} total={QUIZ_QUESTIONS.length} />
               <span className="font-display text-arcanum-gold/40 text-xs tracking-widest">
                 {quiz.currentQuestion + 1} / {QUIZ_QUESTIONS.length}
@@ -164,7 +164,7 @@ export default function InitiationPage() {
               <p className="font-display text-arcanum-gold/30 text-xs tracking-[0.3em] uppercase mb-3">
                 Query {quiz.currentQuestion + 1}
               </p>
-              <h2 className="font-display text-arcanum-parchment text-xl sm:text-2xl leading-snug mb-3 tracking-wide">
+              <h2 className="font-display text-arcanum-parchment text-lg sm:text-xl md:text-2xl leading-snug mb-3 tracking-wide">
                 {currentQ.question}
               </h2>
               {currentQ.subtext && (
@@ -181,7 +181,7 @@ export default function InitiationPage() {
                   key={i}
                   onClick={() => handleSelect(i)}
                   disabled={selectedOption !== null}
-                  className={`quiz-option w-full text-left px-6 py-5 rounded-sm ${
+                  className={`quiz-option w-full text-left px-4 sm:px-6 py-4 sm:py-5 rounded-sm ${
                     selectedOption === i ? 'selected' : ''
                   }`}
                 >

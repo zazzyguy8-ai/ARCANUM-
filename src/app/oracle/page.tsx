@@ -120,7 +120,7 @@ export default function OraclePage() {
           <p className="font-display text-arcanum-silver/40 text-xs tracking-[0.4em] uppercase mb-2">
             Restricted Access
           </p>
-          <h1 className="font-display text-3xl sm:text-4xl tracking-wide text-arcanum-parchment mb-3">
+          <h1 className="font-display text-2xl sm:text-3xl md:text-4xl tracking-wide text-arcanum-parchment mb-3">
             The Oracle
           </h1>
           <p className="font-serif text-arcanum-parchment/50 text-sm italic">
@@ -132,7 +132,7 @@ export default function OraclePage() {
         {showUpgrade && !isPremium && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-arcanum-void/95 backdrop-blur-md" onClick={() => setShowUpgrade(false)} />
-            <div className="relative z-10 w-full max-w-md card-arcane p-8 rounded-sm text-center border-arcanum-gold/40">
+            <div className="relative z-10 w-full max-w-md card-arcane p-5 sm:p-8 rounded-sm text-center border-arcanum-gold/40">
               <span className="text-4xl block mb-5" style={{ color: '#c9a96e' }}>✦</span>
               <h2 className="font-display text-arcanum-gold text-xl tracking-widest uppercase mb-3">
                 Arcanum Adept
@@ -173,7 +173,7 @@ export default function OraclePage() {
         )}
 
         {/* Oracle interface */}
-        <div className="card-arcane p-8 rounded-sm mb-8" style={{ borderColor: 'rgba(139,157,195,0.2)' }}>
+        <div className="card-arcane p-4 sm:p-8 rounded-sm mb-8" style={{ borderColor: 'rgba(139,157,195,0.2)' }}>
 
           {!isPremium && (
             <div className="mb-6 flex items-center justify-between">
@@ -200,8 +200,8 @@ export default function OraclePage() {
             <p className="font-display text-xs text-arcanum-parchment/30 uppercase tracking-wider mb-3">
               Suggested queries
             </p>
-            <div className="flex flex-wrap gap-2">
-              {ORACLE_PROMPTS.slice(0, 4).map((p) => (
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+              {ORACLE_PROMPTS.slice(0, 3).map((p) => (
                 <button
                   key={p}
                   onClick={() => setQuestion(p)}
@@ -223,12 +223,12 @@ export default function OraclePage() {
             maxLength={500}
           />
 
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-0 sm:justify-between">
             <span className="font-serif text-xs text-arcanum-parchment/20">{question.length}/500</span>
             <button
               onClick={handleAsk}
               disabled={!question.trim() || loading || !canAsk}
-              className={`btn-primary px-8 py-3 text-xs rounded-sm ${
+              className={`btn-primary px-6 sm:px-8 py-3 text-xs rounded-sm sm:w-auto w-full ${
                 !canAsk || !question.trim() ? 'opacity-40 cursor-not-allowed' : ''
               }`}
             >
@@ -267,7 +267,7 @@ export default function OraclePage() {
 
         {/* Reading result */}
         {reading && !loading && (
-          <div className="card-arcane p-8 rounded-sm mb-8" style={{ borderColor: 'rgba(139,157,195,0.25)' }}>
+          <div className="card-arcane p-4 sm:p-8 rounded-sm mb-8" style={{ borderColor: 'rgba(139,157,195,0.25)' }}>
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xl" style={{ color: '#8b9dc3' }}>◯</span>
               <div>
@@ -290,7 +290,7 @@ export default function OraclePage() {
             </h2>
             <div className="space-y-4">
               {oracleHistory.slice(1, 5).map((h, i) => (
-                <div key={i} className="card-arcane p-5 rounded-sm opacity-70 hover:opacity-100 transition-opacity">
+                <div key={i} className="card-arcane p-4 sm:p-5 rounded-sm opacity-70 hover:opacity-100 transition-opacity">
                   <p className="font-serif text-arcanum-parchment/40 text-xs italic mb-3">"{h.question}"</p>
                   <p className="font-serif text-arcanum-parchment/60 text-sm leading-relaxed line-clamp-3">
                     {h.reading}

@@ -46,7 +46,7 @@ function RitualModal({
 
       <div className="relative z-10 w-full max-w-lg">
         <div
-          className="card-arcane p-8 rounded-sm"
+          className="card-arcane p-5 sm:p-8 rounded-sm"
           style={{ borderColor: `${archetype.primaryColor}30` }}
         >
           {phase === 'intro' && (
@@ -127,7 +127,7 @@ function RitualModal({
                 <p className="font-display text-xs text-arcanum-gold/40 uppercase tracking-wider mb-4">
                   Step {currentStep + 1}
                 </p>
-                <p className="font-serif text-arcanum-parchment/90 text-lg leading-relaxed">
+                <p className="font-serif text-arcanum-parchment/90 text-base sm:text-lg leading-relaxed">
                   {ritual.steps[currentStep]}
                 </p>
               </div>
@@ -228,7 +228,7 @@ export default function RitualsPage() {
       >
         <div className="mb-10">
           <p className="font-display text-arcanum-gold/40 text-xs tracking-[0.4em] uppercase mb-2">Sacred Rites</p>
-          <h1 className="font-display text-3xl sm:text-4xl tracking-wide text-arcanum-parchment mb-2">
+          <h1 className="font-display text-2xl sm:text-3xl md:text-4xl tracking-wide text-arcanum-parchment mb-2">
             Ritual Archive
           </h1>
           <p className="font-serif text-arcanum-parchment/50 text-sm italic">
@@ -237,7 +237,7 @@ export default function RitualsPage() {
         </div>
 
         {/* Domain filter */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-8">
           {domains.map((domain) => (
             <button
               key={domain}
@@ -256,7 +256,7 @@ export default function RitualsPage() {
         {/* Streak banner */}
         {store.streakDays >= 3 && (
           <div
-            className="card-arcane p-4 rounded-sm mb-6 flex items-center gap-4"
+            className="card-arcane p-4 rounded-sm mb-6 flex items-center gap-2 sm:gap-4"
             style={{ borderColor: 'rgba(255,102,34,0.3)' }}
           >
             <span className="streak-flame text-2xl">◈</span>
@@ -272,7 +272,7 @@ export default function RitualsPage() {
         )}
 
         {/* Ritual grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
           {filtered.map((ritual) => {
             const done = completedRituals.includes(ritual.id);
             const locked = ritual.isPremium && !isPremium;
@@ -280,7 +280,7 @@ export default function RitualsPage() {
             return (
               <div
                 key={ritual.id}
-                className={`card-arcane p-6 rounded-sm cursor-pointer group transition-all ${
+                className={`card-arcane p-4 sm:p-6 rounded-sm cursor-pointer group transition-all ${
                   locked ? 'opacity-60' : ''
                 }`}
                 style={{ borderColor: done ? `${archetype.primaryColor}40` : undefined }}
