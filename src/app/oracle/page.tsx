@@ -163,10 +163,15 @@ export default function OraclePage() {
                 disabled={checkoutLoading}
                 className="w-full btn-primary py-4 text-sm rounded-sm mb-3"
               >
-                {checkoutLoading ? 'Preparing...' : 'Unlock Adept — $9.99/month'}
+                {checkoutLoading ? 'Preparing...' : (
+                  <>
+                    <span className="block">Unlock Adept Access</span>
+                    <span className="block text-xs opacity-80 font-normal normal-case tracking-normal mt-0.5">$4.99/mo — Limited offer</span>
+                  </>
+                )}
               </button>
               <p className="font-serif text-arcanum-parchment/30 text-xs">
-                Cancel anytime. Billed monthly via Stripe.
+                $4.99/mo · Cancel anytime · Billed via Stripe
               </p>
             </div>
           </div>

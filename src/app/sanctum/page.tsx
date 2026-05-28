@@ -313,7 +313,8 @@ export default function SanctumPage() {
               Forbidden Archive. The deeper work awaits.
             </p>
             <Link href="/oracle?upgrade=1" className="btn-primary px-6 sm:px-10 py-3 text-sm rounded-sm">
-              Unlock Adept Access — $9.99/mo
+              <span className="block">Unlock Adept Access</span>
+              <span className="block text-xs opacity-80 font-normal normal-case tracking-normal mt-0.5">$4.99/mo — Limited offer</span>
             </Link>
           </div>
         )}
