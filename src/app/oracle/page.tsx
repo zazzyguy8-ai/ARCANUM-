@@ -39,14 +39,21 @@ export default function OraclePage() {
   const freeReadingsLeft = Math.max(0, 3 - oracleHistory.length);
 
   useEffect(() => {
-    if (!archetypeId) { router.push('/initiation'); return; }
+    if (!archetypeId) {
+      if (upgradeMode) {
+        setVisible(true);
+        return;
+      }
+      router.push('/initiation');
+      return;
+    }
     const a = getArchetype(archetypeId);
     if (a) setArchetype(a);
     const t = setTimeout(() => setVisible(true), 100);
     return () => clearTimeout(t);
   }, [archetypeId]);
 
-  if (!archetype) return null;
+  if (!archetype && !upgradeMode) return null;
 
   const canAsk = isPremium || freeReadingsLeft > 0;
 
@@ -90,6 +97,53 @@ export default function OraclePage() {
       setCheckoutLoading(false);
     }
   };
+
+  if (upgradeMode && !archetype) {
+    return (
+      <main className="relative min-h-screen bg-arcanum-void flex items-center justify-center p-4">
+        <ParticleField />
+        <div className="relative z-10 w-full max-w-md card-arcane p-5 sm:p-8 rounded-sm text-center border-arcanum-gold/40">
+          <span className="text-4xl block mb-5" style={{ color: '#c9a96e' }}>✦</span>
+          <h2 className="font-display text-arcanum-gold text-xl tracking-widest uppercase mb-3">
+            Arcanum Adept
+          </h2>
+          <p className="font-serif text-arcanum-parchment/70 text-sm leading-relaxed mb-6">
+            Unlock the full Archive. Unlimited Oracle readings. All premium rituals.
+            Complete lore access. Evolution paths. Rare relics.
+          </p>
+          <div className="space-y-3 text-left mb-8">
+            {[
+              'Unlimited AI Oracle readings',
+              'All premium ritual rites',
+              'Full Forbidden Archive',
+              'Archetype evolution paths',
+              'Rare relic collection',
+            ].map((f) => (
+              <div key={f} className="flex items-center gap-3">
+                <span className="text-arcanum-gold text-xs">✦</span>
+                <span className="font-serif text-arcanum-parchment/80 text-sm">{f}</span>
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={handleStripeCheckout}
+            disabled={checkoutLoading}
+            className="w-full btn-primary py-4 text-sm rounded-sm mb-3"
+          >
+            {checkoutLoading ? 'Preparing...' : (
+              <>
+                <span className="block">Unlock Adept Access</span>
+                <span className="block text-xs opacity-80 font-normal normal-case tracking-normal mt-0.5">$4.99/mo — Limited offer</span>
+              </>
+            )}
+          </button>
+          <p className="font-serif text-arcanum-parchment/30 text-xs">
+            $4.99/mo · Cancel anytime · Billed via Stripe
+          </p>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="relative min-h-screen bg-arcanum-void">
